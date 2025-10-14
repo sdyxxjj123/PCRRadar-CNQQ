@@ -61,3 +61,4 @@
 
 ---
 
+![预览图](https://raw.githubusercontent.com/sdyxxjj123/PCRRadar-CNQQ/main/assets/demo.png)
