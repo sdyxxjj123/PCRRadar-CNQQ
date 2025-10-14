@@ -3,7 +3,7 @@ import time
 from datetime import datetime, timedelta
 import pytz
 from openpyxl.styles import Font
-
+import os
 
 def has_claimed_reward(login_timestamp):
     # 设置东八区时区
