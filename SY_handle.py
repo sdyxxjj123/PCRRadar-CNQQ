@@ -31,7 +31,9 @@ def has_claimed_reward(login_timestamp):
         return 2  # 昨天和今天都未登录
     
 def get_KRANK(EXP):
-    df = pd.read_excel('C:\\Users\\Administrator\\Desktop\\HoshinoBot\\HoshinoBot\\hoshino\\modules\\CSV.xlsx', header=0)
+    cur_dir = os.path.dirname(__file__)
+    excel_path = os.path.join(cur_dir, 'CSV.xlsx')
+    df = pd.read_excel(excel_path, header=0)
     
     levels = df.iloc[:, 0].values
     required_exps = df.iloc[:, 1].values
