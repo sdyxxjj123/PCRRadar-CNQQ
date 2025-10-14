@@ -1,2 +1,4 @@
-CSV.xlsx
+__pycache__/
+*.pyc
+
 account.json
