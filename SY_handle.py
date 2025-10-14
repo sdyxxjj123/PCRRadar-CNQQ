@@ -35,8 +35,8 @@ def get_KRANK(EXP):
     excel_path = os.path.join(cur_dir, 'CSV.xlsx')
     df = pd.read_excel(excel_path, header=0)
     
-    levels = df.iloc[:, 0].values
-    required_exps = df.iloc[:, 1].values
+    levels = df.iloc[:, 1].values
+    required_exps = df.iloc[:, 0].values
 
     current_level = levels[0]
 
