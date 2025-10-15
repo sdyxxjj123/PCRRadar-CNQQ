@@ -3,7 +3,7 @@ import time
 from datetime import datetime, timedelta
 import pytz
 from openpyxl.styles import Font
-
+import os
 
 def has_claimed_reward(login_timestamp):
     # 设置东八区时区
@@ -31,10 +31,12 @@ def has_claimed_reward(login_timestamp):
         return 2  # 昨天和今天都未登录
     
 def get_KRANK(EXP):
-    df = pd.read_excel('C:\\Users\\Administrator\\Desktop\\HoshinoBot\\HoshinoBot\\hoshino\\modules\\CSV.xlsx', header=0)
+    cur_dir = os.path.dirname(__file__)
+    excel_path = os.path.join(cur_dir, 'CSV.xlsx')
+    df = pd.read_excel(excel_path, header=0)
     
-    levels = df.iloc[:, 0].values
-    required_exps = df.iloc[:, 1].values
+    levels = df.iloc[:, 1].values
+    required_exps = df.iloc[:, 0].values
 
     current_level = levels[0]
 
