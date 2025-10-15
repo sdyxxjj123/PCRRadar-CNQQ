@@ -138,13 +138,25 @@ bclient = bsdkclient(acinfo, captchaVerifierV2, errlogger)
 client = pcrclient(bclient)
 
 qlck = Lock()
-
+'''
 @on_command('/pcrvalx')
 async def validate(session):
     global binds, lck, validate
     if session.ctx['user_id'] == acinfo['admin']:
         validate = session.ctx['message'].extract_plain_text().strip()[9:]
         captcha_lck.release()
+        '''
+@sv.on_prefix(['/pcrvalx'])
+async def use(bot, ev: CQEvent):
+    global binds, lck, validate
+    args = ev.message.extract_plain_text().split()
+    print("success")
+    if str(ev.user_id) == str(acinfo['admin']):
+        validate = args[0]
+        captcha_lck.release()
+        print("success")
+    
+
 
 def is_group_admin(ctx):
     return ctx['sender']['role'] in ['owner', 'admin', 'administrator']
